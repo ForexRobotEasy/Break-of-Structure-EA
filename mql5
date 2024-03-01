@@ -1,0 +1,110 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                              Break of Structure EA|
+//|                      https://www.forexroboteasy.com                  |
+//|                                 Developed by Forex Robot Easy Team|
+//+------------------------------------------------------------------+
+
+// Define global variables
+input double threshold = 0.001; // Default threshold for break of structure
+input int timeframe = PERIOD_H1; // Default timeframe for analysis
+input int stopLoss = 50; // Default stop loss in pips
+input int takeProfit = 100; // Default take profit in pips
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set desired symbol and timeframe
+    SymbolSet('EURUSD');
+    PeriodSet(timeframe);
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Clean up any resources used
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check for break of structure
+    if (IsBreakOfStructure())
+    {
+        // Generate entry signal
+        GenerateEntrySignal();
+
+        // Set stop loss and take profit levels
+        SetStopLossAndTakeProfit();
+    }
+
+    // Check for exit signal
+    if (IsExitSignal())
+    {
+        // Generate exit signal
+        GenerateExitSignal();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Function to check for break of structure                          |
+//+------------------------------------------------------------------+
+bool IsBreakOfStructure()
+{
+    // Add code to identify break of structure based on threshold or support/resistance levels
+
+    // Return true if break of structure is detected, false otherwise
+    return true;
+}
+
+//+------------------------------------------------------------------+
+//| Function to generate entry signal                                 |
+//+------------------------------------------------------------------+
+void GenerateEntrySignal()
+{
+    // Add code to generate entry signal based on break of structure pattern
+
+    // Print entry signal to the journal
+    Print('Entry signal generated');
+}
+
+//+------------------------------------------------------------------+
+//| Function to set stop loss and take profit levels                  |
+//+------------------------------------------------------------------+
+void SetStopLossAndTakeProfit()
+{
+    // Add code to set stop loss and take profit levels based on risk management rules
+
+    // Print stop loss and take profit levels to the journal
+    Print('Stop loss and take profit levels set');
+}
+
+//+------------------------------------------------------------------+
+//| Function to check for exit signal                                 |
+//+------------------------------------------------------------------+
+bool IsExitSignal()
+{
+    // Add code to check for exit signal based on predefined conditions
+
+    // Return true if exit signal is detected, false otherwise
+    return false;
+}
+
+//+------------------------------------------------------------------+
+//| Function to generate exit signal                                  |
+//+------------------------------------------------------------------+
+void GenerateExitSignal()
+{
+    // Add code to generate exit signal based on predefined conditions
+
+    // Print exit signal to the journal
+    Print('Exit signal generated');
+}
